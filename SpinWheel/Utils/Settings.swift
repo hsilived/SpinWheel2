@@ -22,4 +22,4 @@ let kGameFont: String = "Context Rounded Black SSi"
 var kHubSpinsWheel = true
 
 //if you don't want the user to be able to swipe to spin the wheel change this to false
-var kCanSwipeToSpinWheel = true
+var kCanSwipeToSpinWheel = false

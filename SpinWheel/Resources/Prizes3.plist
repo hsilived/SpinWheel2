@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Prizes</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>20 cents</string>
+			<key>image</key>
+			<string>tpir_prize_20</string>
+			<key>amount</key>
+			<integer>20</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>40 cents</string>
+			<key>image</key>
+			<string>tpir_prize_40</string>
+			<key>amount</key>
+			<integer>40</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>75 cents</string>
+			<key>image</key>
+			<string>tpir_prize_75</string>
+			<key>amount</key>
+			<integer>75</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>55 cents</string>
+			<key>image</key>
+			<string>tpir_prize_55</string>
+			<key>amount</key>
+			<integer>55</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>95 cents</string>
+			<key>image</key>
+			<string>tpir_prize_95</string>
+			<key>amount</key>
+			<integer>95</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>50 cents</string>
+			<key>image</key>
+			<string>tpir_prize_50</string>
+			<key>amount</key>
+			<integer>50</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>85 cents</string>
+			<key>image</key>
+			<string>tpir_prize_85</string>
+			<key>amount</key>
+			<integer>85</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>30 cents</string>
+			<key>image</key>
+			<string>tpir_prize_30</string>
+			<key>amount</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>65 cents</string>
+			<key>image</key>
+			<string>tpir_prize_65</string>
+			<key>amount</key>
+			<integer>65</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>10 cents</string>
+			<key>image</key>
+			<string>tpir_prize_10</string>
+			<key>amount</key>
+			<integer>10</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>45 cents</string>
+			<key>image</key>
+			<string>tpir_prize_45</string>
+			<key>amount</key>
+			<integer>45</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>70 cents</string>
+			<key>image</key>
+			<string>tpir_prize_70</string>
+			<key>amount</key>
+			<integer>70</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>25 cents</string>
+			<key>image</key>
+			<string>tpir_prize_25</string>
+			<key>amount</key>
+			<integer>25</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>90 cents</string>
+			<key>image</key>
+			<string>tpir_prize_90</string>
+			<key>amount</key>
+			<integer>90</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>5 cents</string>
+			<key>image</key>
+			<string>tpir_prize_5</string>
+			<key>amount</key>
+			<integer>5</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>1 dollar</string>
+			<key>image</key>
+			<string>tpir_prize_100</string>
+			<key>amount</key>
+			<integer>100</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>15 cents</string>
+			<key>image</key>
+			<string>tpir_prize_15</string>
+			<key>amount</key>
+			<integer>15</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>80 cents</string>
+			<key>image</key>
+			<string>tpir_prize_80</string>
+			<key>amount</key>
+			<integer>80</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>35 cents</string>
+			<key>image</key>
+			<string>tpir_prize_35</string>
+			<key>amount</key>
+			<integer>35</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>60 cents</string>
+			<key>image</key>
+			<string>tpir_prize_60</string>
+			<key>amount</key>
+			<integer>60</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

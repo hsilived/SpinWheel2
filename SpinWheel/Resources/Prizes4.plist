@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Prizes</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_1</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_2</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_3</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_4</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_5</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_6</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_7</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>a booster</string>
+			<key>image</key>
+			<string>prize_8</string>
+			<key>amount</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

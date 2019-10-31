@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var spinWheelOpen = false
     private var spinWheel: SpinWheel!
+    private var wonLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
         
@@ -23,23 +24,106 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         
-        if let spinButton = self.childNode(withName: "//spinButton") as? PushButton {
-            spinButton.quickSetUpWith(action: { self.displaySpinWheel() })
-            spinButton.buttonImage = "spin_icon"
+        if let wonLabel = self.childNode(withName: "wonLabel") as? SKLabelNode {
+            self.wonLabel = wonLabel
+            wonLabel.isHidden = true
         }
         
+        if let spinButton1 = self.childNode(withName: "//spinButton") as? PushButton {
+            spinButton1.quickSetUpWith(action: { self.displaySpinWheel1() })
+            spinButton1.buttonImage = "spin_icon"
+        }
+        
+        if let spinButton2 = self.childNode(withName: "//spinButton2") as? PushButton {
+            spinButton2.quickSetUpWith(action: { self.displaySpinWheel2() })
+            spinButton2.buttonImage = "spin_icon"
+        }
+        
+        if let spinButton3 = self.childNode(withName: "//spinButton3") as? PushButton {
+            spinButton3.quickSetUpWith(action: { self.displaySpinWheel3() })
+            spinButton3.buttonImage = "spin_icon"
+        }
+        
+        if let spinButton4 = self.childNode(withName: "//spinButton4") as? PushButton {
+            spinButton4.quickSetUpWith(action: { self.displaySpinWheel4() })
+            spinButton4.buttonImage = "spin_icon"
+        }
     }
     
-    func displaySpinWheel() {
+    func displaySpinWheel1() {
         
-        print("spin wheel")
-        spinWheel = SpinWheel(size: self.size)
-        spinWheel.zPosition = 500
-        addChild(spinWheel)
+        Prizes.loadPrizes(file: "Prizes")
         
-        spinWheel.initPhysicsJoints()
+        if let spinWheel = SKReferenceNode(fileNamed: "SpinWheel")!.getBaseChildNode() as? SpinWheel {
+            
+            spinWheel.removeFromParent()
+            self.spinWheel = spinWheel
+            spinWheel.zPosition = 100
+            spinWheel.spinWheelDelegate = self
+            addChild(spinWheel)
+            
+            spinWheel.initPhysicsJoints()
+            
+            spinWheelOpen = true
+        }
+    }
+    
+    func displaySpinWheel2() {
         
-        spinWheelOpen = true
+        Prizes.loadPrizes(file: "Prizes2")
+        
+        if let spinWheel = SKReferenceNode(fileNamed: "SpinWheel2")!.getBaseChildNode() as? SpinWheel {
+            
+            spinWheel.removeFromParent()
+            self.spinWheel = spinWheel
+            spinWheel.zPosition = 100
+            spinWheel.hubSpinsWheel = false
+            spinWheel.spinWheelDelegate = self
+            addChild(spinWheel)
+            
+            spinWheel.initPhysicsJoints()
+            
+            spinWheelOpen = true
+        }
+    }
+    
+    func displaySpinWheel3() {
+        
+        Prizes.loadPrizes(file: "Prizes3")
+        
+        if let spinWheel = SKReferenceNode(fileNamed: "SpinWheel3")!.getBaseChildNode() as? SpinWheel {
+            
+            spinWheel.removeFromParent()
+            self.spinWheel = spinWheel
+            spinWheel.spinDirection = .counterClockwise
+            spinWheel.zPosition = 100
+            spinWheel.hubSpinsWheel = false
+            spinWheel.spinWheelDelegate = self
+            addChild(spinWheel)
+            
+            spinWheel.initPhysicsJoints()
+            
+            spinWheelOpen = true
+        }
+    }
+    
+    func displaySpinWheel4() {
+        
+        Prizes.loadPrizes(file: "Prizes4")
+        
+        if let spinWheel = SKReferenceNode(fileNamed: "SpinWheel4")!.getBaseChildNode() as? SpinWheel {
+            
+            spinWheel.removeFromParent()
+            self.spinWheel = spinWheel
+            spinWheel.zPosition = 100
+            spinWheel.hubSpinsWheel = false
+            spinWheel.spinWheelDelegate = self
+            addChild(spinWheel)
+            
+            spinWheel.initPhysicsJoints()
+            
+            spinWheelOpen = true
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -54,5 +138,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if spinWheelOpen {
             spinWheel.updateWheel(currentTime)
         }
+    }
+}
+
+extension GameScene: SpinWheelDelegate {
+    
+    func won(text: String, amount: Int) {
+        
+        wonLabel.text = "you won \(text) with a value of \(amount)"
+        wonLabel.isHidden = false
     }
 }
