@@ -118,7 +118,7 @@
 		6329B1632079B93600178235 = {
 			isa = PBXGroup;
 			children = (
-				6380A223236CBEAE00E523E1 /* Documentation */,
+				6380A223236CBEAE00E523E1 /* Docs */,
 				6329B16E2079B93600178235 /* SpinWheel */,
 				6329B16D2079B93600178235 /* Products */,
 			);
@@ -254,14 +254,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		6380A223236CBEAE00E523E1 /* Documentation */ = {
+		6380A223236CBEAE00E523E1 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
 				6380A224236CBEAE00E523E1 /* LICENSE */,
 				6380A225236CBEAE00E523E1 /* example.gif */,
 				6380A226236CBEAE00E523E1 /* README.md */,
 			);
-			path = Documentation;
+			path = Docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
