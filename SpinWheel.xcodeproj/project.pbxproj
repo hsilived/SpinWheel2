@@ -36,6 +36,7 @@
 		6380A227236CBEAF00E523E1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6380A224236CBEAE00E523E1 /* LICENSE */; };
 		6380A228236CBEAF00E523E1 /* example.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6380A225236CBEAE00E523E1 /* example.gif */; };
 		6380A229236CBEAF00E523E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6380A226236CBEAE00E523E1 /* README.md */; };
+		6380A22B236CD9A000E523E1 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 6380A22A236CD9A000E523E1 /* info.png */; };
 		63AC843923600716005922C5 /* small_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AC843823600716005922C5 /* small_dot.png */; };
 		63AC843C2360072E005922C5 /* Spinning.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63AC843A2360072E005922C5 /* Spinning.sks */; };
 		63AC843D2360072E005922C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63AC843B2360072E005922C5 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		6380A224236CBEAE00E523E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6380A225236CBEAE00E523E1 /* example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = example.gif; sourceTree = "<group>"; };
 		6380A226236CBEAE00E523E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6380A22A236CD9A000E523E1 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		63AC843823600716005922C5 /* small_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_dot.png; sourceTree = "<group>"; };
 		63AC843A2360072E005922C5 /* Spinning.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spinning.sks; sourceTree = "<group>"; };
 		63AC843B2360072E005922C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		6380A223236CBEAE00E523E1 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				6380A22A236CD9A000E523E1 /* info.png */,
 				6380A224236CBEAE00E523E1 /* LICENSE */,
 				6380A225236CBEAE00E523E1 /* example.gif */,
 				6380A226236CBEAE00E523E1 /* README.md */,
@@ -324,6 +327,7 @@
 				632E34C12367596A00DF0957 /* Prizes3.plist in Resources */,
 				63AC843C2360072E005922C5 /* Spinning.sks in Resources */,
 				6380A216236B224E00E523E1 /* Assets.xcassets in Resources */,
+				6380A22B236CD9A000E523E1 /* info.png in Resources */,
 				63AC843923600716005922C5 /* small_dot.png in Resources */,
 				6380A21A236B353200E523E1 /* Prizes4.plist in Resources */,
 				6380A229236CBEAF00E523E1 /* README.md in Resources */,

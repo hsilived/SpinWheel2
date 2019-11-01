@@ -1,9 +1,10 @@
 # SpriteKit Spinning Prize Wheel 2
 
+![Orange Think Box presents: SpinWheel](logo.png)
+
 SpriteKit Spinning prize wheel
 
 ![Orange Think Box presents: SpinWheel](example.gif)
-
 
 SpriteKit Prize Wheel is a physics based spinning prize wheel with a real moving peg flapper to create an awesome looking effect. You can have your users push the spin button in the center of the wheel to spin the wheel or create a seperate button to start the spinning fun. Use it to reward your users with daily prizes, trivia games, control chance situations or for gambling type games.
 
@@ -86,6 +87,12 @@ Inside of Settings.swift you can change the font or how the Spin Wheel is intera
 ## To Change values on the Spin Wheel
 
 If you want to change the number of slots or sizes of the slots change the wheel picture in the SpinWheel.sks file.
+
+    To designate where each section of the wheel starts and ends you must have a "peg"  
+    If you want additional pegs inside a section but DON'T want to start a new section you must change the class of those pegs to DummyPeg inside of the editor
+    
+    ![Instructions](info.png)
+    
 To change the values for each piece of the wheel edit, add or delete from the array of dictionaries in the Prizes.plist file inside of the Resources folder.
 title = string that is diplayed if you win that item
 image = image name for icon in wheel section (in string format)
@@ -108,7 +115,7 @@ I am happy to provide the SpriteKit Prize Wheel, and example code free of charge
 If you use this code or get inspired by the idea give us a star ;) and let us know, I would love to hear about it.
     
 ## License
-Copyright (c) 2017 Orange Think Box
+Copyright (c) 2019 Orange Think Box
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
