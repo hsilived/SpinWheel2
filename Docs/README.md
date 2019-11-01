@@ -2,7 +2,7 @@
 
 SpriteKit Spinning prize wheel
 
-![Orange Think Box presents: SpinWheel](Docs/example.gif)
+![Orange Think Box presents: SpinWheel](example.gif)
 
 
 SpriteKit Prize Wheel is a physics based spinning prize wheel with a real moving peg flapper to create an awesome looking effect. You can have your users drag on the wheel to control how to much to spin just like a real prize wheel or have your users push the spin button in the center of the wheel to spin the wheel. Use it to reward your users with daily prizes, trivia games, control chance situations or for gambling type games.
