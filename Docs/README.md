@@ -86,17 +86,19 @@ Inside of Settings.swift you can change the font or how the Spin Wheel is intera
 
 ## To Change values on the Spin Wheel
 
-If you want to change the number of slots or sizes of the slots change the wheel picture in the SpinWheel.sks file.
+- If you want to change the number of slots or sizes of the slots change the wheel picture in the SpinWheel.sks file.
 
-    To designate where each section of the wheel starts and ends you must have a "peg"  
-    If you want additional pegs inside a section but DON'T want to start a new section you must change the class of those pegs to DummyPeg inside of the editor
+- To designate where each section of the wheel starts and ends you must have a "peg"  
+    
+- If you want additional pegs inside a section but DON'T want to start a new section you must change the class of those pegs to DummyPeg inside of the editor
+    
+    - prizeImage is an empty sprite on the wheel that can be dragged around to control exactly where each sections icon will appear when rendered. You do not need to dot his for each section just once will apply to all sections
+    
+    - prizeText is a label on the wheel in the editor, change the properties of this label will change the text for all sections of your wheel when rendered
     
 ![Instructions](info.png)
     
 To change the values for each piece of the wheel edit, add or delete from the array of dictionaries in the Prizes.plist file inside of the Resources folder.
-title = string that is diplayed if you win that item
-image = image name for icon in wheel section (in string format)
-amount = Int value associated with prize (example if the bulk of your prizes are coins, they can all have the same image but would have different amounts 100, 200, 500)
 
     title = string that is diplayed if you win that item
     image = image name for icon in wheel section (in string format)
