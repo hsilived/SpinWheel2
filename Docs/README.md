@@ -7,6 +7,8 @@ SpriteKit Spinning prize wheel
 
 SpriteKit Prize Wheel is a physics based spinning prize wheel with a real moving peg flapper to create an awesome looking effect. You can have your users push the spin button in the center of the wheel to spin the wheel or create a seperate button to start the spinning fun. Use it to reward your users with daily prizes, trivia games, control chance situations or for gambling type games.
 
+Spin Wheel 2 is now completely laid out in the Xcode editor. If you are looking for one constructed entirely in code please see our SpinWheel [!SpinWheel](https://github.com/hsilived/SpinWheel/) repo. Being laid out in the editor allows you to create wheels with any number of sections, wheels with section sizes that are not all equal, define where the wheel pegs are placed and apply actions and emitters right to the wheel visually.
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/hsilived/SpinWheel2/blob/master/Docs/LICENSE)
 [![Twitter](https://img.shields.io/badge/twitter-@OrangeThinkBox-55ACEE.svg)](http://twitter.com/orangethinkbox)
 
