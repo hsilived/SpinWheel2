@@ -35,6 +35,9 @@
 		6380A21A236B353200E523E1 /* Prizes4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6380A219236B353200E523E1 /* Prizes4.plist */; };
 		6380A221236CB83A00E523E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6380A21F236CB83A00E523E1 /* README.md */; };
 		6380A222236CB83A00E523E1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6380A220236CB83A00E523E1 /* LICENSE */; };
+		6380A227236CBEAF00E523E1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6380A224236CBEAE00E523E1 /* LICENSE */; };
+		6380A228236CBEAF00E523E1 /* example.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6380A225236CBEAE00E523E1 /* example.gif */; };
+		6380A229236CBEAF00E523E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6380A226236CBEAE00E523E1 /* README.md */; };
 		63AC843923600716005922C5 /* small_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AC843823600716005922C5 /* small_dot.png */; };
 		63AC843C2360072E005922C5 /* Spinning.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63AC843A2360072E005922C5 /* Spinning.sks */; };
 		63AC843D2360072E005922C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63AC843B2360072E005922C5 /* Assets.xcassets */; };
@@ -82,6 +85,9 @@
 		6380A219236B353200E523E1 /* Prizes4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Prizes4.plist; sourceTree = "<group>"; };
 		6380A21F236CB83A00E523E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6380A220236CB83A00E523E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6380A224236CBEAE00E523E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6380A225236CBEAE00E523E1 /* example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = example.gif; sourceTree = "<group>"; };
+		6380A226236CBEAE00E523E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		63AC843823600716005922C5 /* small_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_dot.png; sourceTree = "<group>"; };
 		63AC843A2360072E005922C5 /* Spinning.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spinning.sks; sourceTree = "<group>"; };
 		63AC843B2360072E005922C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		6329B1632079B93600178235 = {
 			isa = PBXGroup;
 			children = (
+				6380A223236CBEAE00E523E1 /* Documentation */,
 				6329B16E2079B93600178235 /* SpinWheel */,
 				6329B16D2079B93600178235 /* Products */,
 			);
@@ -247,6 +254,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		6380A223236CBEAE00E523E1 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				6380A224236CBEAE00E523E1 /* LICENSE */,
+				6380A225236CBEAE00E523E1 /* example.gif */,
+				6380A226236CBEAE00E523E1 /* README.md */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,8 +332,11 @@
 				6380A216236B224E00E523E1 /* Assets.xcassets in Resources */,
 				63AC843923600716005922C5 /* small_dot.png in Resources */,
 				6380A21A236B353200E523E1 /* Prizes4.plist in Resources */,
+				6380A229236CBEAF00E523E1 /* README.md in Resources */,
+				6380A227236CBEAF00E523E1 /* LICENSE in Resources */,
 				63E5DF5922EF443E00AD81DE /* SpinWheel.sks in Resources */,
 				6329B1A92079C11700178235 /* gomarice_okuba_cloud.ttf in Resources */,
+				6380A228236CBEAF00E523E1 /* example.gif in Resources */,
 				63E5DF5522EF415600AD81DE /* victory.aac in Resources */,
 				63AC843D2360072E005922C5 /* Assets.xcassets in Resources */,
 				6380A221236CB83A00E523E1 /* README.md in Resources */,
