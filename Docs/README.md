@@ -70,7 +70,7 @@ Add the following snippets to your scene to open a copy of the SpinWheel
 
 ## Settings.swift
 
-Inside of Settings.swift you can change the font or how the Spin Wheel is interacted with. Settings also has the physics category declarations.
+Inside of Settings.swift you can change the font or how the Spin Wheel is interacted with. Settings also has the physics category declarations. If you have multiple wheels that you want different settings for you can override each setting on each instance of SpinWheel (see the init above)
 
     let kGameFont: String = "Context Rounded Black SSi"
 
@@ -79,29 +79,27 @@ Inside of Settings.swift you can change the font or how the Spin Wheel is intera
 
     //if you don't want the user to be able to swipe to spin the wheel change this to false
     var kCanSwipeToSpinWheel = true
+    
+    //when the wheel is almost stopped and hits a peg it will shimmy between the pegs if this is set to true
+    var kWheelCanSpinBackwards = false
 
 ## To Change values on the Spin Wheel
 
-Inside of SpinWheel.swift change the first 3 values for each array in the slots array
+If you want to change the number of slots or sizes of the slots change the wheel picture in the SpinWheel.sks file.
+To change the values for each piece of the wheel edit, add or delete from the array of dictionaries in the Prizes.plist file inside of the Resources folder.
+title = string that is diplayed if you win that item
+image = image name for icon in wheel section (in string format)
+amount = Int value associated with prize (example if the bulk of your prizes are coins, they can all have the same image but would have different amounts 100, 200, 500)
 
-    //[prizeTitle that displays when won, icon image, value of items one in String format, start angle (do not change), end angle (do not change)]
-    slots = [
-        ["40 coins", "wheel_prize_coin", "40", "0", "44"]
-    ]
+    title = string that is diplayed if you win that item
+    image = image name for icon in wheel section (in string format)
+    amount = Int value associated with prize (example if the bulk of your prizes are coins, they can all have the same image but would have different amounts 100, 200, 500)
     
 ## To receive winnings
     
-Inside of SpinWheel.swift check in won(prizeTitle: String) for the same prizeTitle as in the slots array and handle it accordingly
+    Inside of SpinWheel.swift in the closeWinDialog() func a call will be sent out to the SpinWheel delegate which is probably going to be your scene and you can handle this anyway you want from your scene. Save the winnings in UserDefaults, add to their score, etc.
 
-    func won(prizeTitle: String) {
-    
-        if prizeTitle == "a present" {
-            //they've won a prize so do something with the it
-        }
-        else if prizeTitle.hasSuffix("coins")  {
-            //they've won coins so do something with the coins
-        }
-    }
+    self.spinWheelDelegate?.won(text: wonPrizeTitle, amount: wonPrizeAmount)
 
         
 ## Feedback
