@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "301"
             endingLineNumber = "301"
-            landmarkName = "loadSlotInfo(slot:position:rotation:textOffset:)"
+            landmarkName = "setupSounds()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -128,8 +128,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "402"
             endingLineNumber = "402"
-            landmarkName = "initPhysicsJoints()"
-            landmarkType = "7">
+            landmarkName = "SpinWheel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -144,7 +144,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "353"
             endingLineNumber = "353"
-            landmarkName = "createFlapper()"
+            landmarkName = "createPrizeLabel(text:textOffset:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

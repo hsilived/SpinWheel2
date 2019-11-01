@@ -45,6 +45,7 @@ class SpinWheel: SKSpriteNode {
     private var wonSound: SKAction!
     private var wooshSound: SKAction!
     private var startPos: CGFloat = 0
+    private var backwardsDegree: CGFloat!
     
     private var foundPrizeTextLabel = false
     private var prizeTextColor = SKColor(white: 0.125, alpha: 1.0)
@@ -91,6 +92,8 @@ class SpinWheel: SKSpriteNode {
         
         createWheel()
         
+        loadWheelHub()
+        
         loadEmitters()
         
         createFlapper()
@@ -122,11 +125,6 @@ class SpinWheel: SKSpriteNode {
             wheel.physicsBody!.affectedByGravity = false
             wheel.physicsBody!.allowsRotation = false
             wheel.physicsBody!.mass = 200
-        }
-        
-        if let wheelHub = self.childNode(withName: "wheelHub") as? PushButton {
-            self.wheelHub = wheelHub
-            wheelHub.quickSetUpWith(imageBaseName: "wheelHub", action: { [weak self] in self!.spinWheel() })
         }
     }
     
@@ -192,34 +190,42 @@ class SpinWheel: SKSpriteNode {
                             pegAngle = firstPegPos.x - wheel.position.x < 0 ? -(angle / 2) : 0
                         }
                         
+                        //save the peg positions as angles so that we can calculate where the wheel lands
                         pegPoints.append((pegAngle, pegAngle + angle))
                         
                         let imageAngle: CGFloat = pegAngle + angle / 2
                         pegAngle += angle
                         
+                        //adjust the position of the prize image if they have adjustment image on the wheel in the editor
                         if prizeImagePosY != 0 {
                             percentageFromCenter = prizeImagePosY / distanceToCenter * 100
                         }
                         
                         //figuring out where to put the prize info
+                        //middle of the last peg and this peg
                         let midRing = lastPegPos.midPointTo(point: pegPos)
+                        //distance to the center of the wheel from the midRing point
                         let distanceToMid = midRing.distanceTo(point: wheel.position)
                         let adjustedPercent = percentageFromCenter * distanceToCenter / distanceToMid
-                        let wtf = midRing - wheel.position
-                        let midPos = CGPoint.zero.betweenPointTo(point: wtf, byPercentage: adjustedPercent)
+                        //if the wheel isnt in the center of the page adjust the location of the midRing accordingly
+                        let adjustedMidRing = midRing - wheel.position
+                        
+                        let midPos = CGPoint.zero.betweenPointTo(point: adjustedMidRing, byPercentage: adjustedPercent)
                         
                         loadSlotInfo(slot: pegIndex, position: midPos, rotation: imageAngle, textOffset: prizeImagePosY - prizeTextPosY)
                         
+                        //close of the loop of prizes by doing the last peg
                         if peg == pegs.children.last {
                             
+                            //save the peg positions as angles so that we can calculate where the wheel lands
                             pegPoints.append((pegAngle, pegAngle + angle))
                             
                             let imageAngle = pegAngle + angle / 2
                             let midRing = pegPos.midPointTo(point: firstPegPos!)
                             let distance = midRing.distanceTo(point: wheel.position)
                             let adjustedPercent = percentageFromCenter * distanceToCenter / distance
-                            let wtf = midRing - wheel.position
-                            let midPos = CGPoint.zero.betweenPointTo(point: wtf, byPercentage: adjustedPercent)
+                            let adjustedMidRing = midRing - wheel.position
+                            let midPos = CGPoint.zero.betweenPointTo(point: adjustedMidRing, byPercentage: adjustedPercent)
                             
                             loadSlotInfo(slot: pegIndex + 1, position: midPos, rotation: imageAngle, textOffset: prizeImagePosY - prizeTextPosY)
                         }
@@ -228,9 +234,10 @@ class SpinWheel: SKSpriteNode {
                     }
                     else {
                         
+                        //figure out where the first peg is so that we can start our angle calculations from it
                         firstPegPos = self.convert(self.convert(peg.position, from: wheel), to: self)
+                        //calculate the distance from the pegs to the center of the wheel
                         distanceToCenter = firstPegPos.distanceTo(point: wheel.position)
-                        print("distanceToCenter \(distanceToCenter)")
                     }
                     lastPegPos = self.convert(self.convert(peg.position, from: wheel), to: self)
                 }
@@ -238,6 +245,7 @@ class SpinWheel: SKSpriteNode {
                 let peg = peg as? SKSpriteNode
                 var pegPos = peg!.position//self.convert(self.convert(peg!.position, from: wheel), to: self)
                 
+                //if the wheel doesn't have a scale of 1.0 we need to accordingly adjust the postion of the pegs
                 if wheel.xScale != 1 {
                     pegPos *= wheel.xScale
                 }
@@ -251,6 +259,16 @@ class SpinWheel: SKSpriteNode {
         return physicsBodies
     }
     
+    func loadWheelHub() {
+        
+        //this is the hub in the center of the wheel
+        //this hub can also act as a spin button if kHubSpinsWheel is set in Settings.swift or if hubSpinsWheel is set to true in this file
+        if let wheelHub = self.childNode(withName: "wheelHub") as? PushButton {
+            self.wheelHub = wheelHub
+            wheelHub.quickSetUpWith(imageBaseName: "wheelHub", action: { [weak self] in self!.spinWheel() })
+        }
+    }
+
     func loadEmitters() {
         
         //the smoke emitter behind the wheel, only active when the weheel spins
@@ -297,11 +315,7 @@ class SpinWheel: SKSpriteNode {
     //MARK: - Create Prize Wheel Objects
     
     func loadSlotInfo(slot: Int, position: CGPoint, rotation: CGFloat, textOffset: CGFloat) {
-        
-        //        print("position \(position)")
-        //        let flapperPositionConverted: CGPoint = self.convert(self.convert(position, from: self), to: self.scene!)
-        //        print("flapperPositionConverted \(flapperPositionConverted)")
-        
+
         let prizeImage = createPrizeImage(name: slots[slot]["image"] as! String)
         prizeImage.position = position
         prizeImage.zRotation = CGFloat.degreesToRadians(-rotation)()
@@ -393,9 +407,7 @@ class SpinWheel: SKSpriteNode {
     }
     
     //MARK: - Game Loop
-    
-    var backwardsDegree: CGFloat!
-    
+
     func updateWheel(_ currentTime: TimeInterval) {
         
         guard wheelState == .spinning else { return }
@@ -694,7 +706,5 @@ extension SpinWheel: WinDialogDelegate {
     }
 }
 
-class DummyPeg: SKSpriteNode {
-    
-    
-}
+//Empty class for pegs on the wheel which don't signify the edge of a new pie piece
+class DummyPeg: SKSpriteNode {}
