@@ -34,8 +34,7 @@ class SpinWheel: SKSpriteNode {
     private var flapper: SKSpriteNode!
     private var pivotPin: SKSpriteNode!
     private var springPin: SKSpriteNode!
-    //    private var center: SKSpriteNode!
-    
+
     private var wheelState: WheelState = .waiting
     private var slots = [[String: AnyObject]]()
     private var pegPoints = [(CGFloat, CGFloat)]()
@@ -59,6 +58,7 @@ class SpinWheel: SKSpriteNode {
     private var prizeImageScale: CGFloat = 1.0
     private var exitButton: PushButton!
     private var wheelHub: PushButton!
+    private var spinButton: PushButton!
     private var dialogTitleLabel: SKLabelNode!
     private var spinEmitter: SKEmitterNode!
     private var streaks = [SKEmitterNode]()
@@ -299,8 +299,10 @@ class SpinWheel: SKSpriteNode {
         }
         
         if let spinButton = self.childNode(withName: "spinButton") as? PushButton {
+            self.spinButton = spinButton
             spinButton.quickSetUpWith(imageBaseName: "button_blank_up", action: { [weak self] in self!.spinWheel() })
             spinButton.createButtonText(buttonText: "spin")
+            spinButton.isEnabled = true
         }
     }
     
@@ -423,6 +425,8 @@ class SpinWheel: SKSpriteNode {
         }
         else {
             
+            guard !kWheelCanSpinBackwards else { return }
+            
             let av = wheel.physicsBody!.angularVelocity
             
             if spinDirection == .counterClockwise && av < 0 || spinDirection == .clockwise && av > 0 {
@@ -476,23 +480,16 @@ class SpinWheel: SKSpriteNode {
             if degree > pegPoints[x].0 && degree < pegPoints[x].1 {
                 print("You landed on \(slots[x]["title"] as! String) degree \(degree)")
                 
-                won(prizeTitle: String(describing: slots[x]["title"] as! String))
-                
+                //create some fluff on the wheel to show which item they have won
                 highlightWin(x)
+                
+                displayWinDialog(prizeIndex: x)
                 break
             }
         }
     }
-    
-    func won(prizeTitle: String) {
         
-        if prizeTitle == "a present" {
-            //they've won a prize so do something with the it
-        }
-        else if prizeTitle.hasSuffix("coins")  {
-            //they've won coins so do something with the coins
-        }
-    }
+    //MARK: - Physics functions
     
     func didBegin(_ contact: SKPhysicsContact) {
         
@@ -607,31 +604,35 @@ class SpinWheel: SKSpriteNode {
         
         if wheelState != .spinning {
             
+            //disable the spinButton so that they cannot hammer it while the wheel is spinning
+            spinButton.isEnabled = false
+            
+            //start the smoke behind the wheel and the streaks on top of the wheel
             enableAllEmitters()
             
             var spinPower = CGFloat.random(min: 1200, max: 2800)
-            //            spinPower = 1600.9
+            //spinPower = 1600.9
             
+            //if the wheel has been scaled up or down adjust the power accordingly
             if wheel.xScale != 1 {
                 spinPower *= wheel.xScale
             }
-            
-            wheel.physicsBody!.allowsRotation = true
-            print("spinPower \(spinPower)")
+  
             spin(spinPower)
             wheelState = .spinning
+            
+            run(wooshSound)
         }
     }
     
     func spin(_ impulse: CGFloat) {
         
         //print("velocity \(impulse)");
+        wheel.physicsBody!.allowsRotation = true
         wheel.physicsBody!.applyAngularImpulse((impulse * 30.0) * CGFloat(spinDirection.rawValue))
         wheel.physicsBody!.angularDamping = 1
         let maxAngularVelocity: CGFloat = 100
         wheel.physicsBody!.angularVelocity = min(wheel.physicsBody!.angularVelocity, maxAngularVelocity)
-        
-        run(wooshSound)
     }
     
     //MARK: - Highlight win functions
@@ -653,10 +654,6 @@ class SpinWheel: SKSpriteNode {
         emitter.particlePositionRange = CGVector(dx: temp.size.width * 2, dy: temp.size.height * 2)
         emitter.zPosition = 11
         wheel.addChild(emitter)
-        
-        self.run(SKAction.wait(forDuration: 2.0)) {
-            self.createWinDialog(index)
-        }
     }
     
     func explodeImage(_ image: SKSpriteNode, duration: TimeInterval) {
@@ -673,17 +670,19 @@ class SpinWheel: SKSpriteNode {
         }
     }
     
-    func createWinDialog(_ winnningIndex: Int) {
+    func displayWinDialog(prizeIndex: Int) {
         
-        wonPrizeTitle = slots[winnningIndex]["title"] as! String
-        let prizeImage = slots[winnningIndex]["image"] as! String
-        wonPrizeAmount = slots[winnningIndex]["amount"] as! Int
+        wonPrizeTitle = slots[prizeIndex]["title"] as! String
+        let prizeImage = slots[prizeIndex]["image"] as! String
+        wonPrizeAmount = slots[prizeIndex]["amount"] as! Int
         
         let winDialog = WinDialog(size: self.size, title: wonPrizeTitle, image: prizeImage, imageRotation: flapperAngle, wheelTexture: wheel.texture!)
         winDialog.delegate = self
         self.addChild(winDialog)
         
-        winDialog.fadeIn()
+        self.run(SKAction.wait(forDuration: 2.0)) {
+            winDialog.fadeIn()
+        }
     }
     
     func closeSpinWheel() {

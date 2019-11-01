@@ -23,3 +23,6 @@ var kHubSpinsWheel = true
 
 //if you don't want the user to be able to swipe to spin the wheel change this to false
 var kCanSwipeToSpinWheel = false
+
+//when the wheel is almost stopped and hits a peg it will shimmy between the pegs if this is set to true
+var kWheelCanSpinBackwards = false

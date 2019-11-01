@@ -145,7 +145,12 @@ extension GameScene: SpinWheelDelegate {
     
     func won(text: String, amount: Int) {
         
-        wonLabel.text = "you won \(text) with a value of \(amount)"
+        var wonText = "you won \(text)"
+        if amount > 0 {
+            wonText += " with a value of \(amount)"
+        }
+        
+        wonLabel.text = wonText
         wonLabel.isHidden = false
     }
 }

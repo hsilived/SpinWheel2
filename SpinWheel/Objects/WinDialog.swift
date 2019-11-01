@@ -40,7 +40,7 @@ class WinDialog: SKSpriteNode {
         self.wheelTexture = wheelTexture
         
         zPosition = 2000
-        //alpha = 0
+        alpha = 0
         
         setup()
     }
