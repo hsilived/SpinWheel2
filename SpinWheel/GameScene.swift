@@ -52,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func displaySpinWheel1() {
         
+        //load the prize info from a plist in the resources folder
         Prizes.loadPrizes(file: "Prizes")
         
         if let spinWheel = SKReferenceNode(fileNamed: "SpinWheel")!.getBaseChildNode() as? SpinWheel {
@@ -77,6 +78,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             spinWheel.removeFromParent()
             self.spinWheel = spinWheel
             spinWheel.zPosition = 100
+            //you can optionally set whether or not the center hub acts as a button here or in settings
+            //spinWheel.hubSpinsWheel = false
+            //you can optionally set the direction the wheel spins here or in settings (default is clockwise)
+            //spinWheel.spinDirection = .counterClockwise
             spinWheel.hubSpinsWheel = false
             spinWheel.spinWheelDelegate = self
             addChild(spinWheel)
@@ -126,6 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //sends the physics contacts to the spinwheel to handle
     func didBegin(_ contact: SKPhysicsContact) {
         
         if spinWheelOpen {
@@ -133,6 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //sends the updates to the spinwheel to update inside the class
     override func update(_ currentTime: TimeInterval) {
         
         if spinWheelOpen {
